@@ -1,5 +1,5 @@
 @extends('layouts.admin-layout')
-@section('title','Categories')
+@section('title', 'Categories')
 @section('content')
 
     <h2 class="mt-3">Categories</h2>
@@ -11,7 +11,7 @@
         </div>
     @endif
 
-    <a href="{{route('categories.create')}}" class="btn mb-3 btn-primary">Add Category</a> <!-- Add A Category -->
+    <a href="{{ route('categories.create') }}" class="btn mb-3 btn-primary">Add Category</a> <!-- Add A Category -->
 
     <!-- List All Products -->
     <table class="table table-dark ms-auto">
@@ -30,11 +30,12 @@
                     <td>{{ $category->name }}</td>
                     <td>{{ $category->slug }}</td>
                     <td>
-                        <a href="{{route('categories.edit',$category)}}" class="btn btn-outline-warning">Edit</a>
-                        <form action="{{route('categories.destroy',$category)}}" method="POST" style="display: inline">
+                        <a href="{{ route('categories.edit', $category) }}" class="btn btn-outline-warning">Edit</a>
+                        <form action="{{ route('categories.destroy', $category) }}" method="POST" style="display: inline">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-outline-danger ms-md-1 mt-2 mt-md-0" onclick="return confirm('Delete?')">Delete</button>
+                            <button type="submit" class="btn btn-outline-danger ms-md-1 mt-2 mt-md-0"
+                                onclick="return confirm('Delete?')">Delete</button>
                         </form>
                     </td>
                 </tr>
